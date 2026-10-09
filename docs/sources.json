@@ -398,6 +398,34 @@
     {
       "path": "newton/viewer.py",
       "git_blob": "2cbb5e278a1b2b4b274c5429494efdd86e193ab7"
+    },
+    {
+      "path": "docs/concepts/custom_attributes.rst",
+      "git_blob": "5888ef48c721cecb9d76f731dd9aec771f217ff5"
+    },
+    {
+      "path": "docs/concepts/extended_attributes.rst",
+      "git_blob": "2000a4b4a7d7a7a9f996e2ddd4ec191051c7d694"
+    },
+    {
+      "path": "docs/lab/isaac-lab.rst",
+      "git_blob": "faca0d680bb53dae97e5efbf41080c5d1aa052ae"
+    },
+    {
+      "path": "newton/_src/solvers/kamino/examples/rl/example_rl_bipedal.py",
+      "git_blob": "671f601005c8cb5e117f9b7f12ac089ec7914548"
+    },
+    {
+      "path": "newton/examples/basic/example_recording.py",
+      "git_blob": "e0ea322f50c3e50c4a1edf77acf5b951889a2665"
+    },
+    {
+      "path": "newton/examples/basic/example_replay_viewer.py",
+      "git_blob": "748b251af3b047e98e15ede077e819ae1e8120f3"
+    },
+    {
+      "path": "newton/examples/robot/example_robot_policy.py",
+      "git_blob": "df7d97ca628786ee1769dc2466f6c98a01f6289b"
     }
   ]
 }

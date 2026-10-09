@@ -139,3 +139,21 @@ E2 特别区分：`eval_ik` 状态重建与 `newton.ik.IKSolver` 目标优化；
 | [宿主与显示指南](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/docs/guide/visualization.rst) | Rerun/Viser/RTX/文件模式和上游验证边界 |
 
 来源身份、静态检查、保留问题与下一阶段见 [E4 验收](e4-validation.md)。没有把图像尺寸、数组分配或窗口存在当作有效观测证明。
+
+## E5：world 隔离、学习时序与数据生命周期
+
+[专题正文](batch-learning-data.md)与[静态例子](../examples/e5_world_reset_snapshot.py)串起实体布局、选择性重置、策略输入和保存/回放。
+
+| 入口 | 本章实际核对 |
+|---|---|
+| [worlds](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/docs/concepts/worlds.rst#L117-L168) / [replicate](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/sim/builder.py#L3130-L3220) | B+2 starts、global 前后段、复制对象生命周期、同构/异构边界 |
+| [Control.clear](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/sim/control.py#L76-L117) / [State.assign](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/sim/state.py#L202-L255) | target quaternion、全量与局部 reset、namespace 与 graph 地址 |
+| [MuJoCo.reset](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/solvers/mujoco/solver_mujoco.py#L4180-L4312) / [VBD.reset](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/solvers/vbd/solver_vbd.py#L2370-L2425) | 权威状态、flags、后端历史和更新阶段；基类/XPBD 不是自动恢复初值 |
+| [policy](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/examples/robot/example_robot_policy.py#L75-L170) / [推进顺序](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/examples/robot/example_robot_policy.py#L325-L417) | 12+3n 观测、关节映射、外部 ONNX、capture 范围、物理/展示时间差异 |
+| [ViewerFile](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/viewer/viewer_file.py#L1201-L1297) | 顶层 State clone、Model 引用、playback 别名、缺失的 checkpoint/时间信息 |
+| [custom attributes](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/docs/concepts/custom_attributes.rst#L858-L923) | 归属/频率/namespace、合并时实体和 world 引用重映射 |
+| [Warp runtime](https://github.com/NVIDIA/warp/blob/f2eaed82d8d03b37bf1014cc975954067fefcf16/docs/user_guide/runtime.rst#L1536-L1606) / [CPU graphs](https://github.com/NVIDIA/warp/blob/f2eaed82d8d03b37bf1014cc975954067fefcf16/docs/user_guide/runtime.rst#L1850-L1952) | 不重放任意 Python；CPU APIC 的实验性与操作集合 |
+| [Warp 数组](https://github.com/NVIDIA/warp/blob/f2eaed82d8d03b37bf1014cc975954067fefcf16/warp/_src/types.py#L4521-L4559) / [Torch 互操作](https://github.com/NVIDIA/warp/blob/f2eaed82d8d03b37bf1014cc975954067fefcf16/docs/user_guide/interoperability/pytorch.rst#L44-L97) | host 读回、共享视图、同步与流、梯度所有权 |
+| [Warp RNG](https://github.com/NVIDIA/warp/blob/f2eaed82d8d03b37bf1014cc975954067fefcf16/warp/native/rand.h#L29-L81) | seed/offset、局部 RNG 状态、跨 launch 重复；不是全系统随机种子 |
+
+Warp 身份保存在[独立清单](e5-warp-sources.json)，没有混入 Newton manifest；外部策略 runtime、Torch 和 Isaac Lab 的完整实现未在本章验收。详细保留项和检查见 [E5 验收](e5-validation.md)。

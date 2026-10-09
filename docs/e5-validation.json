@@ -1,0 +1,63 @@
+{
+  "stage": "E5",
+  "issue": "https://github.com/huangkiki/newton-atlas/issues/6",
+  "base_commit": "d4dd7b912c208f78e960315bb22408492ebc9e79",
+  "source_commit": "713fecdc41caf0c9d726f5c016939f36e66e3dff",
+  "warp_source_commit": "f2eaed82d8d03b37bf1014cc975954067fefcf16",
+  "python_version": "3.12.12",
+  "validation_scope": "source review, Markdown links, AST and source identity only; no native imports, compilation, simulation, rendering or example execution",
+  "checks": {
+    "whitespace": "passed",
+    "relative_markdown_links": "passed",
+    "python_ast": "passed",
+    "newton_blob_identity": "passed",
+    "newton_fixed_links_and_line_bounds": "passed",
+    "warp_tag_commit_and_blob_sha256_identity": "passed",
+    "warp_fixed_links_and_line_bounds": "passed",
+    "retained_e3_dependency_identity_and_links": "passed",
+    "manual_claim_review": "passed"
+  },
+  "counts": {
+    "newton_source_files": 106,
+    "newton_source_files_added_e5": 7,
+    "newton_source_links": 456,
+    "warp_source_files": 6,
+    "warp_source_links": 20,
+    "retained_e3_dependency_files": 3,
+    "retained_e3_dependency_links": 13,
+    "python_examples": 7,
+    "markdown_python_snippets": 3
+  },
+  "content_sha256": {
+    "docs/batch-learning-data.md": "39f69154c82ac8ac130c9f17af9bdf92c41be9553b44546ed3e94c7b9344bb39",
+    "examples/e5_world_reset_snapshot.py": "7fcc4e491d80da19e1bcd5c13688ff2d8efd1bb2f9bfa665d5b446ba4c36c53c",
+    "docs/sources.json": "8639e379ea76cac6e8b9f2cac5482282a7200e54aae2e412df522fdb373ff27d",
+    "docs/e5-warp-sources.json": "6bf007c941a125b352f83a02282192badf5d82ca2a457494cc44aa13c740eb0d"
+  },
+  "resolved_static_findings": [
+    "Initial Control.clear citation ended at line 120 beyond its 117-line file; corrected both chapter/source-map anchors to 117 and reran all source-link checks.",
+    "Review narrowed SolverMuJoCo reset semantics for native CPU world-0 MjData ownership.",
+    "Review clarified verbose=False default and swallowed save errors in ViewerFile.save_recording."
+  ],
+  "retained_limitations": [
+    "Official policy advances 0.020 seconds per step while its sim_time adds 0.005 seconds, by static control-flow inspection.",
+    "Warp 1.18 CPU graphs are experimental; policy capture does not include policy inference.",
+    "ViewerFile stores top-level State arrays and a Model reference, omitting complete resume metadata; playback aliases history.",
+    "Native reset example covers only public scalar-joint arrays, without a solver or valid contact observation.",
+    "Independent Warp source identity does not establish installed version or Newton/Warp runtime compatibility."
+  ],
+  "not_run": [
+    "native imports",
+    "model/backend compilation",
+    "JIT",
+    "teaching examples",
+    "physics or collision steps",
+    "rendering",
+    "policy inference",
+    "training",
+    "benchmarks",
+    "dataset collection",
+    "recording/replay execution",
+    "visual QA"
+  ]
+}

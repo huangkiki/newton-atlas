@@ -9,7 +9,7 @@
 | E2 | 驱动、机器人与任务接口专题 | E1 | [专题已实现](control-robotics-tasks.md)，[源码/静态验收](e2-validation.md) |
 | E3 | 接触、求解器与力观测源码专题 | E1 | [专题已实现](contact-solvers-forces.md)，[源码/静态验收](e3-validation.md) |
 | E4 | 传感器、渲染与可视化专题 | E1 | [专题已实现](sensors-rendering.md)，[源码/静态验收](e4-validation.md) |
-| E5 | 批量、学习接口与数据专题 | E2、E4 | 待开发 |
+| E5 | 批量、学习接口与数据专题 | E2、E4 | [专题已实现](batch-learning-data.md)，[源码/静态验收](e5-validation.md) |
 | E6 | 引擎特色、扩展与能力边界专题 | E3 | 待开发 |
 | E7 | 双路线课程审校与 DexLab 复用入口 | E2–E6 | 待开发 |
 
@@ -34,3 +34,7 @@ E3 已展开 A4/B1–B5 与 B0 的核心动力学装配链；XPBD 的权重/恢�
 ## E4 后的任务复审
 
 E4 已展开 A6 的四种公开 sensor、射线查询、七类相机通道和 viewer/宿主边界，保留 qdd producer/采样阶段、默认 miss 值、空场景不写输出及 BVH 共享等限制。没有 native import、渲染、物理执行或视觉 QA。E5 已具备 E2/E4 前置，下一项可推进批量与学习/数据接口；E6 仍承接特色扩展，E7 等待 E5/E6。E1–E3 验收是历史交付快照，当前来源清单与检查以 E4 为准。发布状态以 [Issue #5](https://github.com/huangkiki/newton-atlas/issues/5) 及实际合入提交为准。
+
+## E5 后的任务复审
+
+E5 已展开 A8/A9 与 B6 的批量/内存/graph/数据核心，保留 solver reset 差异、官方 policy 示例时钟差异、CPU graph 实验性和 ViewerFile 非完整 checkpoint 的限制。Warp 1.18.0 另列固定官方源码身份，不代表安装或组合运行验收。未执行原生导入、JIT、物理、渲染或训练。E6 已具备 E3 前置，下一项承接专用 solver、耦合、扩展及完整可微实现；E7 等待 E6 后进行全课审校。旧验收保持其交付时快照，本次检查见 E5。发布状态以 [Issue #6](https://github.com/huangkiki/newton-atlas/issues/6) 与实际合入提交为准。

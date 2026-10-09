@@ -1,0 +1,46 @@
+{
+  "upstream": "NVIDIA/warp",
+  "version": "1.18.0",
+  "release": "v1.18.0",
+  "tag_object": "8366687f755fc9e163f60cc70d84331c9d0036da",
+  "commit": "f2eaed82d8d03b37bf1014cc975954067fefcf16",
+  "scope": "Independent official source reading only; not installed, imported, compiled or executed; not a tested Newton/Warp runtime combination.",
+  "files": [
+    {
+      "path": "docs/user_guide/runtime.rst",
+      "git_blob": "b8068fef14e997dee5806865f0f5a0f7cea564f4",
+      "sha256": "3984339a9010e56aed77fdfebc78c7838326db89ab417f648d69a9ad00bc48b7",
+      "lines": 3481
+    },
+    {
+      "path": "docs/user_guide/interoperability/pytorch.rst",
+      "git_blob": "1658b89945d7c8562b0350ed8d8be83a4e8b6a61",
+      "sha256": "90b5f5bdb353025b1b47dd1e2aef22c4c0928f63fc5712bab44e3255884d58f4",
+      "lines": 1121
+    },
+    {
+      "path": "warp/_src/context.py",
+      "git_blob": "cc0ff81c7a52a0bd0bf3b9693a57ff9a3fa3c1c5",
+      "sha256": "b970a8d8397a1bf63459f1f6b6fc62f4ff33af66d25f05cc79d92ee264949fd5",
+      "lines": 16560
+    },
+    {
+      "path": "warp/_src/types.py",
+      "git_blob": "b9ead349df38ff51e1f1735cfe1980d60c3f2ab1",
+      "sha256": "85ebad67c2d3a5235a159beed3bd6dcb28685c59218663f433963c70c2307f67",
+      "lines": 8474
+    },
+    {
+      "path": "warp/_src/torch.py",
+      "git_blob": "347df7dbac4274431a9d6fb9d6daebf38202e898",
+      "sha256": "b186349f80b9c459501b1b18da45eaada6112ee9f05406c9d9ffbb33ab98b199",
+      "lines": 455
+    },
+    {
+      "path": "warp/native/rand.h",
+      "git_blob": "ce64766fd9114519e217dfe962caef2749ff3c6e",
+      "sha256": "a26b69c97f743d33460589ecca6976f31947c3e36c5e0932f17340d19db5c007",
+      "lines": 304
+    }
+  ]
+}
