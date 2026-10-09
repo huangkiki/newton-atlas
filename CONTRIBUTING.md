@@ -4,6 +4,6 @@
 
 当前以理解引擎各子系统为主；最小 API 片段需注明是否执行，本轮不新增实验、训练、基准或独立评分器。后续实验复用 DexLab，并保留原报告的版本、工况与限制。
 
-提交前运行 `git diff --check` 和 `python scripts/check_docs.py`，核对引用的源码与版本；新 Python 片段做语法检查。不要用 import 或语法检查结果宣称物理正确。章节计划与已交付内容分开列出。
+提交前运行 `git diff --check` 和 `python scripts/check_docs.py`，核对引用的源码与版本；新增 Python 文件和完整 Markdown Python 片段用 `python scripts/check_examples.py` 做语法检查（不会导入引擎或运行示例）。不要用 import 或语法检查结果宣称物理正确。章节计划与已交付内容分开列出。
 
 优先原创解释与最小模型。新增第三方文件先核实许可，在 THIRD_PARTY.md 记录来源、作者和修改；不提交环境、缓存、凭据、私有路径或大产物。

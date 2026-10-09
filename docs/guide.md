@@ -2,6 +2,8 @@
 
 阅读基线：`713fecdc41caf0c9d726f5c016939f36e66e3dff`，来源为官方固定源码。本篇是对象与关键机制导读，完整专题仍在开发；本轮仅做源码/文档核对，没有运行仿真实验。
 
+详细展开见 [E1：模型、坐标、状态与时间](modeling-state-time.md)，包括带答案练习与未执行的原生 API 例子。
+
 ## 1. 模型、状态与执行器分开
 
 Newton 的 [overview](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/docs/guide/overview.rst) 与 [ModelBuilder](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/sim/builder.py) 是入口。Builder 组织 bodies、shapes、joints 等模型元素，finalize 后形成 [Model](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/sim/model.py)；[State](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/sim/state.py) 保存随时间变化的状态，[Control](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/sim/control.py) 承载控制，Contacts 承载碰撞结果。Solver 负责具体推进算法。

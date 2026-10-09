@@ -1,0 +1,42 @@
+{
+  "stage": "E1",
+  "issue": "https://github.com/huangkiki/newton-atlas/issues/2",
+  "source_commit": "713fecdc41caf0c9d726f5c016939f36e66e3dff",
+  "base_commit": "81dbda3c7e4918d448cf7bd93aa2f696d0c2765b",
+  "validation_date": "2026-10-09",
+  "validation_scope": "source review and static checks; no engine execution",
+  "checks": {
+    "whitespace": "passed",
+    "relative_markdown_links": "passed",
+    "python_ast": "passed",
+    "pinned_source_identity": "passed",
+    "pinned_source_links_and_line_bounds": "passed",
+    "manual_claim_review": "completed; upstream formula discrepancies and importer limitations documented"
+  },
+  "counts": {
+    "source_files": 22,
+    "source_links": 90,
+    "python_examples": 1,
+    "markdown_python_snippets": 0
+  },
+  "content_sha256": {
+    "docs/modeling-state-time.md": "9f83268e432125224ebc90ff37e64685414610b6cec40ccc883b02a562ec2431",
+    "examples/e1_model_state.py": "f4ce8e8a5ff3af16af275471fa89821e1f357efb2517cb23bbfb598ed5262986",
+    "scripts/check_examples.py": "6d3650f91aba5ef7ae6fdc1a9ddc72299c520aa03eb50845bd2ea9e9b44e3d5b",
+    "docs/sources.json": "97f919fd7b81414c6b6c4f2a45725328d24a1417654b1e613cc223f8833747e8"
+  },
+  "not_run": [
+    "native imports",
+    "asset import",
+    "simulation",
+    "benchmark",
+    "training",
+    "checkpoint replay"
+  ],
+  "coverage": {
+    "A1": "delivered as source-grounded lesson",
+    "A2": "delivered as source-grounded lesson",
+    "B0": "configuration, inertia and spatial-vector foundations only; dynamics and constraints remain E3",
+    "B4": "time, substeps and predictor integration foundations only; complete numerical semantics remain E3"
+  }
+}

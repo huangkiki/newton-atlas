@@ -54,6 +54,42 @@
     {
       "path": "newton/examples/basic/example_basic_pendulum.py",
       "git_blob": "fbb1c1dcb2eed424863c1caf61dcd26862411c77"
+    },
+    {
+      "path": "newton/_src/sim/articulation.py",
+      "git_blob": "5332d30d9bf941bf2fc69a87fe7f09d31703ec09"
+    },
+    {
+      "path": "newton/_src/sim/enums.py",
+      "git_blob": "797704c5e7cce68d350a8830e2f5d7efce82e629"
+    },
+    {
+      "path": "newton/_src/solvers/solver.py",
+      "git_blob": "6da67dc2f89a473ff7f00abc1984a51b8d87fe07"
+    },
+    {
+      "path": "newton/_src/utils/import_urdf.py",
+      "git_blob": "c28058f70a3e75c05a4f2bebb0c5bfee60ca08f5"
+    },
+    {
+      "path": "newton/_src/utils/import_mjcf.py",
+      "git_blob": "c996d1bec81250499632ade7233052722406222f"
+    },
+    {
+      "path": "newton/_src/utils/import_usd.py",
+      "git_blob": "3f289e2a66cfaa764b676fa789b3d09b9ff51389"
+    },
+    {
+      "path": "newton/_src/geometry/inertia.py",
+      "git_blob": "766784972c3e248f11c9607decd1fcbc6ed7d06f"
+    },
+    {
+      "path": "newton/_src/math/spatial.py",
+      "git_blob": "b2502731e6b37ca4ae06d8e43c1bef84138ee769"
+    },
+    {
+      "path": "newton/_src/solvers/xpbd/kernels.py",
+      "git_blob": "81a94a07e5e1022a064c8ba3b69aa13b33e76a83"
     }
   ]
 }

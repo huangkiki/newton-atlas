@@ -12,3 +12,4 @@ jobs:
           python-version: '3.12'
       - run: git diff --check
       - run: python scripts/check_docs.py
+      - run: python scripts/check_examples.py
