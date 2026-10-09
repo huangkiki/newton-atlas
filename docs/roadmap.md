@@ -10,7 +10,7 @@
 | E3 | 接触、求解器与力观测源码专题 | E1 | [专题已实现](contact-solvers-forces.md)，[源码/静态验收](e3-validation.md) |
 | E4 | 传感器、渲染与可视化专题 | E1 | [专题已实现](sensors-rendering.md)，[源码/静态验收](e4-validation.md) |
 | E5 | 批量、学习接口与数据专题 | E2、E4 | [专题已实现](batch-learning-data.md)，[源码/静态验收](e5-validation.md) |
-| E6 | 引擎特色、扩展与能力边界专题 | E3 | 待开发 |
+| E6 | 引擎特色、扩展与能力边界专题 | E3 | [专题已实现](extensions-boundaries.md)，[源码/静态验收](e6-validation.md) |
 | E7 | 双路线课程审校与 DexLab 复用入口 | E2–E6 | 待开发 |
 
 E0 交付的是导读与导航，不是所有专题。E1–E6 逐个展开目录中的知识点，E7 按完整课程契约审校。依赖必须以实际文档或合入提交核实，不能仅凭 Issue 关闭。
@@ -38,3 +38,7 @@ E4 已展开 A6 的四种公开 sensor、射线查询、七类相机通道和 vi
 ## E5 后的任务复审
 
 E5 已展开 A8/A9 与 B6 的批量/内存/graph/数据核心，保留 solver reset 差异、官方 policy 示例时钟差异、CPU graph 实验性和 ViewerFile 非完整 checkpoint 的限制。Warp 1.18.0 另列固定官方源码身份，不代表安装或组合运行验收。未执行原生导入、JIT、物理、渲染或训练。E6 已具备 E3 前置，下一项承接专用 solver、耦合、扩展及完整可微实现；E7 等待 E6 后进行全课审校。旧验收保持其交付时快照，本次检查见 E5。发布状态以 [Issue #6](https://github.com/huangkiki/newton-atlas/issues/6) 与实际合入提交为准。
+
+## E6 后的任务复审
+
+E6 已展开 B0/B4 的特色材料与可微边界、B6 原生 solver/耦合扩展和 B7 完整字段到观测的源码追踪。VBD/SemiImplicit 材料差异、Style3D 输入原地修改、MPM 隔离/历史、Proxy/ADMM ownership 与被跳过/拒绝的约束均按固定实现保留。阻力梯度例子只有 AST/API 源审，没有原生运行。Warp Tape 两个来源独立记录，不冒充已安装版本。E7 仍待开展 A0 完整安装专题、双路线总审校和 DexLab 原始版本/工况证据索引；本任务没有启动 E7。既有验收保持历史快照，本次检查见 E6。发布状态以 [Issue #7](https://github.com/huangkiki/newton-atlas/issues/7) 与实际合入提交为准。

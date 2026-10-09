@@ -426,6 +426,78 @@
     {
       "path": "newton/examples/robot/example_robot_policy.py",
       "git_blob": "df7d97ca628786ee1769dc2466f6c98a01f6289b"
+    },
+    {
+      "path": "docs/concepts/coupling.rst",
+      "git_blob": "aa7bb31be7b55374c0b5d466dcea9a994d19de24"
+    },
+    {
+      "path": "newton/_src/geometry/differentiable_contacts.py",
+      "git_blob": "9d193a6f314669afd1c60fd90d9c10b0fd06015f"
+    },
+    {
+      "path": "newton/_src/solvers/coupled/admm_utils.py",
+      "git_blob": "9f5bda76a04814f1fd0f080c087f79f3537f789e"
+    },
+    {
+      "path": "newton/_src/solvers/coupled/interface.py",
+      "git_blob": "59488fc95c0c03b7f3fedacd0b0966c0a58575ec"
+    },
+    {
+      "path": "newton/_src/solvers/coupled/model_view.py",
+      "git_blob": "f8cdb8bf77f22107288871b91c62bb68c5025341"
+    },
+    {
+      "path": "newton/_src/solvers/coupled/proxy_utils.py",
+      "git_blob": "3b188fd0a57431aae242e54aeff2c7f92ac15b6f"
+    },
+    {
+      "path": "newton/_src/solvers/coupled/solver_coupled.py",
+      "git_blob": "24dc8f06d0487175d35ee89dc26d96505111b4b3"
+    },
+    {
+      "path": "newton/_src/solvers/coupled/solver_coupled_admm.py",
+      "git_blob": "a2f27b785db4b8511c51be17586917530ceeb92a"
+    },
+    {
+      "path": "newton/_src/solvers/coupled/solver_coupled_proxy.py",
+      "git_blob": "3ebaddf7eadb37edd62acd619d39702530c96dad"
+    },
+    {
+      "path": "newton/_src/solvers/implicit_mpm/solve_rheology.py",
+      "git_blob": "4a28bbfa61ba21652938b335434c1ff004d820b2"
+    },
+    {
+      "path": "newton/_src/solvers/implicit_mpm/solver_implicit_mpm.py",
+      "git_blob": "6b0afbc008c93c4730baa7393ef1df147ba81315"
+    },
+    {
+      "path": "newton/_src/solvers/kamino/_src/integrators/moreau.py",
+      "git_blob": "58d7acb46286a1adb93483954305c15884207577"
+    },
+    {
+      "path": "newton/_src/solvers/kamino/_src/solvers/dvi/solver.py",
+      "git_blob": "6c2fec0dbb227d398b7f2dcd909929ddc3a0a199"
+    },
+    {
+      "path": "newton/_src/solvers/semi_implicit/kernels_particle.py",
+      "git_blob": "70cff3bce978236a419024bee2918d4688231372"
+    },
+    {
+      "path": "newton/_src/solvers/style3d/linear_solver.py",
+      "git_blob": "da941d593f4b55e0d10e3e4c541a31b9c030d63b"
+    },
+    {
+      "path": "newton/_src/solvers/style3d/solver_style3d.py",
+      "git_blob": "51efd91e6c9eccfbebd993b93916a10e37b538d8"
+    },
+    {
+      "path": "newton/_src/solvers/vbd/particle_vbd_kernels.py",
+      "git_blob": "3312f3379fced8176192d491efcdcf2e1e3fd80b"
+    },
+    {
+      "path": "newton/examples/diffsim/example_diffsim_ball.py",
+      "git_blob": "c63acac288571047ff8b1c9bbf389570e8ff2058"
     }
   ]
 }

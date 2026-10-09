@@ -2,7 +2,7 @@
 
 阅读基线：`713fecdc41caf0c9d726f5c016939f36e66e3dff`，来源为官方固定源码。本篇是对象与关键机制导读，完整专题仍在开发；本轮仅做源码/文档核对，没有运行仿真实验。
 
-详细展开见 [E1：模型、坐标、状态与时间](modeling-state-time.md)，包括带答案练习与未执行的原生 API 例子。
+按顺序展开见 [E1 建模/状态](modeling-state-time.md)、[E2 控制/机器人](control-robotics-tasks.md)、[E3 接触/求解](contact-solvers-forces.md)、[E4 感知/渲染](sensors-rendering.md)、[E5 批量/数据](batch-learning-data.md) 和 [E6 特色求解/扩展](extensions-boundaries.md)。各专题包含带答案练习与固定源码；API 例子未经执行。A0 完整安装专题与全路线审校仍待 E7。
 
 ## 1. 模型、状态与执行器分开
 
@@ -39,6 +39,8 @@ Newton 的 State.body_qd 定义为质心的世界系线速度在前三项、世�
 ## 6. 控制、可视化与扩展怎么继续
 
 控制专题从 Control 和 solver 消费位置追踪；观测专题从 State/Contacts 和 readback 追踪；可视化是消费者，不能充当物理正确性的验证。可微、软体、插件等特性也按 solver 单列，避免用项目层能力概述替代具体支持矩阵。
+
+[E6](extensions-boundaries.md)具体追踪 SemiImplicit/VBD 的不同 tet 力、Style3D 的输入修改、MPM 的网格与材料历史、Kamino 的 DVI，以及 Proxy/ADMM 的实体所有权和约束支持。梯度需要独立前向值和完整可微消费者；创建 requires_grad 数组不是端到端保证。B7 用模型→控制→接触→XPBD→观测串起完整阅读路径，帮助检查每个字段的写者、读者和失效条件。
 
 阅读练习：在原生示例中标出每个数组的所有者和设备；解释 state buffer 交换；选一个 joint 字段查明 XPBD 是否支持它。完整专题进度见[课程路线](curriculum.md)。
 

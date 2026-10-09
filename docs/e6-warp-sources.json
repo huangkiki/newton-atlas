@@ -1,0 +1,22 @@
+{
+  "upstream": "NVIDIA/warp",
+  "version": "1.18.0",
+  "release": "v1.18.0",
+  "tag_object": "8366687f755fc9e163f60cc70d84331c9d0036da",
+  "commit": "f2eaed82d8d03b37bf1014cc975954067fefcf16",
+  "scope": "Independent official source reading only; not installed, imported, compiled or executed; not a tested Newton/Warp runtime combination.",
+  "files": [
+    {
+      "path": "docs/user_guide/differentiability.rst",
+      "git_blob": "65a20b2be6fe84c64dd55ed9c87e6b81f15e114b",
+      "sha256": "1579d9f1c254eb9dd8f4df120cc9b5a62d694cad1a780645fb459e8bec71cf74",
+      "lines": 1543
+    },
+    {
+      "path": "warp/_src/tape.py",
+      "git_blob": "eb4360814fedb35c53ca40239bb0b8914315d266",
+      "sha256": "219b68560c5c1a33b35e75559b42604fedf451358c623de6d64813af79093fd8",
+      "lines": 1274
+    }
+  ]
+}

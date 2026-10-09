@@ -15,8 +15,10 @@ The introductory guide and the following source-grounded lessons are available i
 
 - [E5: batch, learning interfaces and data](docs/batch-learning-data.md) covers A8/A9 and the batch/data portion of B6: world partitions, state/control/backend reset, independently pinned Warp 1.18 memory and graph semantics, policy clocks, randomization, and ViewerFile replay boundaries. The [native example](examples/e5_world_reset_snapshot.py) and [static validation](docs/e5-validation.md) are source/AST-only.
 
-The complete course is still in development. E1 foundations in B0/B4 are extended by E3; specialist solver extensions, deeper differentiation and the final source synthesis remain planned in E6–E7.
+- [E6: specialist solvers, differentiation and native extensions](docs/extensions-boundaries.md) completes the specialist portions of B0/B4/B6 and the B7 source walkthrough: material differences, VBD/Style3D/MPM/Kamino, native Proxy/ADMM ownership and supported constraints, and the full discrete gradient chain. The [linear-drag example](examples/e6_differentiable_drag.py) and [validation](docs/e6-validation.md) are static only. Warp Tape has a [separate source manifest](docs/e6-warp-sources.json).
 
-This phase prioritizes understanding engine subsystems. E1/E2/E3/E4/E5 examples and Python snippets are syntax checked but unexecuted. Source identity and static checks do not establish runtime or physical correctness. No new simulation campaigns, benchmarks, training or scoring are included; later experimental material will reuse [DexLab](https://github.com/huangkiki/Dexlab) with its original version and workload boundaries.
+The complete course is still in development: E7 retains A0 installation, the two-track course audit and the original DexLab evidence index. E6 documents skipped/rejected coupling constraints, MPM isolation conditions and frozen-contact derivative limits; it does not establish universal solver or gradient support.
+
+This phase prioritizes understanding engine subsystems. E1/E2/E3/E4/E5/E6 examples and Python snippets are syntax checked but unexecuted. Source identity and static checks do not establish runtime or physical correctness. No new simulation campaigns, benchmarks, training or scoring are included; later experimental material will reuse [DexLab](https://github.com/huangkiki/Dexlab) with its original version and workload boundaries.
 
 [Pinned upstream source](https://github.com/newton-physics/newton/tree/713fecdc41caf0c9d726f5c016939f36e66e3dff) · [Attribution](THIRD_PARTY.md)

@@ -152,8 +152,31 @@ E2 特别区分：`eval_ik` 状态重建与 `newton.ik.IKSolver` 目标优化；
 | [policy](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/examples/robot/example_robot_policy.py#L75-L170) / [推进顺序](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/examples/robot/example_robot_policy.py#L325-L417) | 12+3n 观测、关节映射、外部 ONNX、capture 范围、物理/展示时间差异 |
 | [ViewerFile](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/viewer/viewer_file.py#L1201-L1297) | 顶层 State clone、Model 引用、playback 别名、缺失的 checkpoint/时间信息 |
 | [custom attributes](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/docs/concepts/custom_attributes.rst#L858-L923) | 归属/频率/namespace、合并时实体和 world 引用重映射 |
-| [Warp runtime](https://github.com/NVIDIA/warp/blob/f2eaed82d8d03b37bf1014cc975954067fefcf16/docs/user_guide/runtime.rst#L1536-L1606) / [CPU graphs](https://github.com/NVIDIA/warp/blob/f2eaed82d8d03b37bf1014cc975954067fefcf16/docs/user_guide/runtime.rst#L1850-L1952) | 不重放任意 Python；CPU APIC 的实验性与操作集合 |
+| [Warp runtime](https://github.com/NVIDIA/warp/blob/f2eaed82d8d03b37bf1014cc975954067fefcf16/docs/user_guide/runtime.rst#L1536-L1606) / [CPU graphs](https://github.com/NVIDIA/warp/blob/f2eaed82d8d03b37bf1014cc975954067fefcf16/docs/user_guide/runtime.rst#L1850-L1952) | 不重放任意 Python；CPU graph 的实验性与操作集合 |
 | [Warp 数组](https://github.com/NVIDIA/warp/blob/f2eaed82d8d03b37bf1014cc975954067fefcf16/warp/_src/types.py#L4521-L4559) / [Torch 互操作](https://github.com/NVIDIA/warp/blob/f2eaed82d8d03b37bf1014cc975954067fefcf16/docs/user_guide/interoperability/pytorch.rst#L44-L97) | host 读回、共享视图、同步与流、梯度所有权 |
 | [Warp RNG](https://github.com/NVIDIA/warp/blob/f2eaed82d8d03b37bf1014cc975954067fefcf16/warp/native/rand.h#L29-L81) | seed/offset、局部 RNG 状态、跨 launch 重复；不是全系统随机种子 |
 
 Warp 身份保存在[独立清单](e5-warp-sources.json)，没有混入 Newton manifest；外部策略 runtime、Torch 和 Isaac Lab 的完整实现未在本章验收。详细保留项和检查见 [E5 验收](e5-validation.md)。
+
+## E6：材料、原生耦合与完整导数链
+
+[专题正文](extensions-boundaries.md)和[原创阻力例子](../examples/e6_differentiable_drag.py)以实际消费者区分共同 API 与具体算法；B7 串联前述 E1–E5 的字段到观测链。
+
+| 入口 | 本章实际核对 |
+|---|---|
+| [SolverBase](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/solvers/solver.py#L538-L644) | 基类 no-op/拒绝、reset、step、读回与碰撞调度 |
+| [tet forces](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/solvers/semi_implicit/kernels_particle.py#L250-L325) | 材料参数乘体积、偏量因子；与 VBD 比较 |
+| [VBD tetrahedron](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/solvers/vbd/particle_vbd_kernels.py#L173-L265) | Lamé 变换、guard、cofactor 与单顶点 block Hessian |
+| [Style3D](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/solvers/style3d/solver_style3d.py#L166-L179) | 输入位置原地修改；另追 PD matrix 和 PCG 固定预算 |
+| [ImplicitMPM](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/solvers/implicit_mpm/solver_implicit_mpm.py#L2875-L2970) | FEM 流变/粒子状态顺序、实际网格速度消费者；reset/隔离/graph 分支 |
+| [MPM stopping](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/solvers/implicit_mpm/solve_rheology.py#L1776-L1899) | 残差缩放、检查粒度、host/graph 停止条件 |
+| [Kamino DVI](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/solvers/kamino/_src/solvers/dvi/solver.py#L745-L857) | bilateral direct solve 与着色 unilateral 迭代交替 |
+| [Moreau](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/solvers/kamino/_src/integrators/moreau.py#L250-L304) | configuration 半步、midpoint forward、更新 twist 后半步 |
+| [Coupling contract](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/docs/concepts/coupling.rst#L48-L139) | ModelView、ownership、hooks、有效质量与重力责任 |
+| [Proxy restart](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/solvers/coupled/solver_coupled_proxy.py#L1316-L1335) | inner iterations 重解同一区间、反馈松弛 |
+| [ADMM joint mapping](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/solvers/coupled/solver_coupled_admm.py#L2530-L2637) | 支持 BALL/FIXED/REVOLUTE，跳过 FREE/DISTANCE，拒绝其他类型 |
+| [ADMM local/dual](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/solvers/coupled/admm_utils.py#L737-L767) | 实际加权速度更新；dual 不冒称物理力 |
+| [Warp Tape](https://github.com/NVIDIA/warp/blob/f2eaed82d8d03b37bf1014cc975954067fefcf16/warp/_src/tape.py#L70-L175) | 逆序 adjoint、loss 前提、禁用 backward 分支 |
+| [Warp differentiation](https://github.com/NVIDIA/warp/blob/f2eaed82d8d03b37bf1014cc975954067fefcf16/docs/user_guide/differentiability.rst#L8-L58) | 前向覆写、梯度消费与 retain_grad 限制 |
+
+Newton 来源进入 [sources.json](sources.json)；两项 Warp 来源独立进入 [E6 Warp 清单](e6-warp-sources.json)，与 E5 相同固定 commit。公式前提、源码缺项和静态检查见 [E6 验收](e6-validation.md)，没有以导数存储或例子语法通过代替 native/gradient 验证。

@@ -1,0 +1,72 @@
+{
+  "stage": "E6",
+  "issue": "https://github.com/huangkiki/newton-atlas/issues/7",
+  "base_commit": "57d4da2ce4fba30cf3663893e2d9cbc4fc6accb6",
+  "source_commit": "713fecdc41caf0c9d726f5c016939f36e66e3dff",
+  "warp_source_commit": "f2eaed82d8d03b37bf1014cc975954067fefcf16",
+  "python_version": "3.12.12",
+  "validation_scope": "source review, Markdown links, AST and source identity only; no native imports, model/backend compilation, JIT, simulation, rendering, training or teaching example execution",
+  "checks": {
+    "whitespace": "passed",
+    "relative_markdown_links": "passed",
+    "python_ast": "passed",
+    "native_signature_ast": "passed",
+    "newton_blob_identity": "passed",
+    "newton_fixed_links_and_line_bounds": "passed",
+    "warp_tag_commit_and_blob_sha256_identity": "passed",
+    "warp_fixed_links_and_line_bounds": "passed",
+    "retained_e3_dependency_identity_and_links": "passed",
+    "manual_claim_review": "passed"
+  },
+  "counts": {
+    "newton_source_files": 124,
+    "newton_source_files_added_e6": 18,
+    "newton_source_links": 554,
+    "warp_source_files_total": 8,
+    "warp_source_files_added_e6": 2,
+    "warp_source_links": 25,
+    "retained_e3_dependency_files": 3,
+    "retained_e3_dependency_links": 13,
+    "python_examples": 8,
+    "markdown_python_snippets": 3,
+    "native_signatures_checked": 9,
+    "answered_exercises": 12
+  },
+  "content_sha256": {
+    "docs/extensions-boundaries.md": "1d9bb776ad2f7d15624a8ff568fc7e75d11e673c7bf3629b2bc84839f86b778b",
+    "examples/e6_differentiable_drag.py": "f91cf0f09b79de5ba54be97328caa5b5720cc33975a86e103f44e1013c8a797c",
+    "docs/sources.json": "faa916f1c9ffbeddb6c5de26a0eb1a7e275da3ae0f91fec82d3bcf72ae5dbca5",
+    "docs/e6-warp-sources.json": "59d8a2105e19d1e137015481b9fbd91bf74fd88f62e234b9f1e19198ff9dc0a7"
+  },
+  "resolved_static_findings": [
+    "Initial SolverBase anchor ended at 648 beyond the actual 644 lines; corrected chapter and source map and reran the source checks.",
+    "Qualified the adjoint formula with independent initial state and controls and terminal-only loss; added initial-state, control and explicit-loss terms.",
+    "Documented the VBD lambda guard, MPM warm-start save order and isolated-mode restriction on global dynamic colliders.",
+    "Expanded Moreau citation to include enable_backward=False at line 39 and DVI citation through the complete alternating loop.",
+    "Clarified that PADMM residuals are transformed back to physical constraint units while differing from DVI residual definitions."
+  ],
+  "retained_limitations": [
+    "SolverBase update_contacts is unimplemented; native method names are not support guarantees.",
+    "SemiImplicit and VBD tetrahedron material implementations differ; the simplified VBD formula excludes its small-lambda guard.",
+    "Style3D mutates input positions; PCG has a fixed iteration budget.",
+    "MPM ignores external Control/Contacts and does not consume the ordinary particle_f through the cited grid-velocity assembly; isolated worlds require explicit separate_worlds configuration.",
+    "Proxy momentum-difference feedback is approximate, and coupling iterations repeat one interval rather than advance extra time.",
+    "Coupled ADMM skips FREE/DISTANCE attachments, rejects PRISMATIC/D6 and drops split-ownership full-surface contacts.",
+    "Frozen-contact kinematics do not differentiate changing contact sets or normals; coupling kernels disable backward.",
+    "Independent Warp identity does not establish installation or Newton/Warp runtime compatibility.",
+    "No numerical gradient, convergence, stability, performance or physical result was obtained."
+  ],
+  "not_run": [
+    "native imports",
+    "model/backend compilation",
+    "JIT",
+    "teaching examples",
+    "physics or collision steps",
+    "rendering",
+    "policy inference",
+    "training",
+    "benchmarks",
+    "finite-difference or numerical gradient checks",
+    "visual QA"
+  ]
+}
