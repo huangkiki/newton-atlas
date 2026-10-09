@@ -1,0 +1,35 @@
+{
+  "version": "3.12.0",
+  "url": "https://files.pythonhosted.org/packages/b2/4f/41acd8a084dc8f140594fcca74f2dda61f89705505df20885bd6e65c0146/mujoco_warp-3.12.0.tar.gz",
+  "sha256": "6937b83e9eb1632446a70104867d2b0c0ff028613ebc377eee992d30640d6554",
+  "upstream": "google-deepmind/mujoco_warp",
+  "commit": "087ac6f0ba9f33edb6bc284eb42aa6c3b16ef1f7",
+  "release": "v3.12.0",
+  "files": [
+    {
+      "path": "mujoco_warp/_src/support.py",
+      "git_blob": "a0f4a275476186caba1f84f64a74871307122a15",
+      "sha256": "1a08ef15f149d1cf3c9ec5df6c688669fe86aa237ee2512a7463caf1b74e3d54"
+    },
+    {
+      "path": "mujoco_warp/_src/solver.py",
+      "git_blob": "34cb831a584cafa3459d1978234d94dcb3d16fe5",
+      "sha256": "509b43da297dc6e49efeacdbb59df675213e84afbdb26770471a5ba1855a24b3"
+    },
+    {
+      "path": "mujoco_warp/_src/forward.py",
+      "git_blob": "bae3c3da479630b22a5e838c7c16a29c72c325ea",
+      "sha256": "7b7ffa3d914b6adf65f228261e207998d5bed1e59d4fb17f5bc6ac796aacf490"
+    }
+  ],
+  "lock_source": {
+    "upstream": "newton-physics/newton",
+    "commit": "713fecdc41caf0c9d726f5c016939f36e66e3dff",
+    "path": "uv.lock",
+    "lines": [
+      3341,
+      3357
+    ]
+  },
+  "scope": "static dependency inspection only; not installed or executed; source files match locked sdist bytes"
+}

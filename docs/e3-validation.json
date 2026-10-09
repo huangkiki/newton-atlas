@@ -1,0 +1,55 @@
+{
+  "stage": "E3",
+  "issue": "https://github.com/huangkiki/newton-atlas/issues/4",
+  "base_commit": "25b6908a68a43c6f3238ea69688943701266ffbe",
+  "source_commit": "713fecdc41caf0c9d726f5c016939f36e66e3dff",
+  "dependency_commit": "087ac6f0ba9f33edb6bc284eb42aa6c3b16ef1f7",
+  "python_version": "3.12.12",
+  "validation_scope": "source review, document links, and AST only; no native imports or teaching-code execution",
+  "checks": {
+    "whitespace": "passed",
+    "relative_markdown_links": "passed",
+    "python_ast": "passed",
+    "newton_blob_identity": "passed",
+    "newton_fixed_links_and_line_bounds": "passed",
+    "dependency_identity_and_locked_sdist_equality": "passed",
+    "dependency_fixed_links_and_line_bounds": "passed",
+    "manual_claim_review": "passed"
+  },
+  "counts": {
+    "newton_source_files": 76,
+    "newton_source_files_added_e3": 24,
+    "newton_source_links": 294,
+    "dependency_source_files": 3,
+    "dependency_source_links": 13,
+    "python_examples": 5,
+    "markdown_python_snippets": 2
+  },
+  "content_sha256": {
+    "docs/contact-solvers-forces.md": "690cd1f6c68f4e116ee2dd274538b29e77ba02fa1cbb3dda4fa988abf55cee39",
+    "examples/e3_contact_readback.py": "eee090db2658d49c3032648059acf1fd571cd9a5b31f1695836dce478ca15b38",
+    "docs/sources.json": "5afb978ca966df57f97984228d615ed2717807eb8ba288bd514980f10f1d3ab2",
+    "docs/e3-dependency-sources.json": "7e0ecb7ff2900fb3b22e46d0905c7ea50ada2039e84a04f24f65fff80a1f4d45"
+  },
+  "corrected_findings": [
+    "SemiImplicit.step source anchor corrected from nonexistent L216 to actual L215"
+  ],
+  "retained_limitations": [
+    "XPBD positional impulse readback excludes restitution velocity-pass increments",
+    "XPBD per-body count weighting makes contact readback approximate; kinematic bodies with IDs differ from body=-1",
+    "Pinned MuJoCo-Warp helper plus Newton adapter rotates contact torque but does not shift it to body0 COM",
+    "SemiImplicit/Featherstone common contact-force readback not implemented; VBD uses a separate body1-force API",
+    "MuJoCo integration review covers fixed forward/step, damping and derivative-call branches, not every derivative implementation",
+    "No physical/runtime validation; CPU MuJoCo internal solve and specialist backends remain outside detailed review"
+  ],
+  "not_run": [
+    "native imports",
+    "all teaching examples and functions",
+    "physics steps",
+    "simulation",
+    "experiments",
+    "training",
+    "benchmarks",
+    "scoring"
+  ]
+}

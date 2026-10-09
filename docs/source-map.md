@@ -76,3 +76,37 @@ E1 还精读上表已有的 builder.py（构建/导入/finalize）、model.py（
 | [newton/ik.py](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/ik.py) | 公开导出与实验性 API 边界，防止把内部 helper 当公共入口 |
 
 E2 特别区分：`eval_ik` 状态重建与 `newton.ik.IKSolver` 目标优化；controller 输出接 State 的展示与接 Control 的动力学链；模型 effort_limit、单 actuator clamp 和任意外部力输入的不同作用范围。
+
+## E3：接触生成到力读回
+
+[专题正文](contact-solvers-forces.md)沿以下入口区分几何、材料、积分、求解和观测。链接都指向同一个 Newton 固定提交；可运行行为仍未验收。
+
+| 入口 | 本章实际核对 |
+|---|---|
+| [CollisionPipeline.collide](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/sim/collide.py#L2137-L2433) | 计数/AABB、过滤/broad phase、writer/narrow phase、matching/sort；容量不能当活跃数 |
+| [Contacts](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/sim/contacts.py#L253-L432) | body-local support 点、world 法线、margin、可选 spatial force 契约 |
+| [碰撞过滤](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/geometry/broad_phase_common.py#L234-L282) | world 与带正负号的 collision group，和位掩码区分 |
+| [hydroelastic reduction](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/geometry/contact_reduction_hydroelastic.py#L983-L1017) | 压力面积积分、等效刚度和 reduction 的有限表示 |
+| [XPBD.step](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/solvers/xpbd/solver_xpbd.py#L389-L569) | 临时 joint force、预测积分、位置/速度阶段 |
+| [XPBD contact kernel](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/solvers/xpbd/kernels.py#L2304-L2504) | 算术材料组合、增量摩擦、COM 力臂、实际 count weighting |
+| [恢复 manifold](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/solvers/xpbd/restitution_kernels.py#L416-L565) | 固定内外迭代、首轮有界负增量与后续非负约束 |
+| [XPBD force readback](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/solvers/xpbd/solver_xpbd.py#L1060-L1116) | 等效 impulse/h；组成和 lifecycle 限制 |
+| [penalty kernel](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/solvers/semi_implicit/kernels_contact.py#L413-L556) | SemiImplicit/Featherstone 的均值、覆盖、法向/摩擦与 body force 写入 |
+| [Featherstone 矩阵](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/solvers/featherstone/solver_featherstone.py#L765-L940) | H、armature、Cholesky、缓存更新周期 |
+| [MuJoCo contact 转换](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/solvers/mujoco/kernels.py#L123-L187) | priority/solmix/max friction 与 solref；非统一平均 |
+| [VBD](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/solvers/vbd/solver_vbd.py#L144-L174) / [原生力读回](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/solvers/vbd/solver_vbd.py#L3705-L3762) | compliant ALM/legacy 与 body1 力，不冒充通用 Contacts.force |
+| [Kamino 配置](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/solvers/kamino/config.py#L470-L611) / [PADMM 收敛](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/solvers/kamino/_src/solvers/padmm/kernels.py#L1343-L1367) | 原生 residual 与单位、预算停止/收敛、warm start |
+| [Kamino COM wrench](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/solvers/kamino/_src/geometry/contacts.py#L1265-L1296) | 方向与 COM 参考点转换 |
+| [SensorContact](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/sensors/sensor_contact.py#L90-L155) / [构造器](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/sensors/sensor_contact.py#L453-L487) | 只消费线性力；聚合、friction 分解及加权中点 |
+| [contact kinematics](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/sim/contact_kinematics.py#L35-L78) / [公开出口](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/__init__.py#L1-L120) | 几何重建与冻结接触集合导数边界，核实公开 API |
+
+### 外部依赖单列
+
+为核对 Newton adapter 实际调用，本章读取 [独立 MuJoCo-Warp 依赖清单](e3-dependency-sources.json)。官方固定 commit 与 Newton uv.lock 锁定的 sdist 逐文件对照通过；它没有混入只代表 Newton 的 sources.json。
+
+- [contact_force_fn](https://github.com/google-deepmind/mujoco_warp/blob/087ac6f0ba9f33edb6bc284eb42aa6c3b16ef1f7/mujoco_warp/_src/support.py#L352-L391)：contact wrench 的 world 旋转，没有 COM 换点；与 Newton adapter 合看才确定固定组合的限制。
+- [后端停止规则](https://github.com/google-deepmind/mujoco_warp/blob/087ac6f0ba9f33edb6bc284eb42aa6c3b16ef1f7/mujoco_warp/_src/solver.py#L3432-L3496)：scaled improvement/gradient 与 iteration 上限，不能译成物理穿透容差。
+
+- [积分器分支](https://github.com/google-deepmind/mujoco_warp/blob/087ac6f0ba9f33edb6bc284eb42aa6c3b16ef1f7/mujoco_warp/_src/forward.py#L353-L612)：Euler damping、RK4、多种速度隐式矩阵和状态推进；积分器与约束优化器分别选择。
+
+专题正文和 [E3 验收](e3-validation.md)保留源码发现与未决项；源码身份核对不等于整文件或全部后端通过物理测试。

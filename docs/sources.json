@@ -210,6 +210,102 @@
     {
       "path": "newton/ik.py",
       "git_blob": "7fe155c2259f0d47b20809eac8720f23a4e602d8"
+    },
+    {
+      "path": "newton/_src/sim/collide.py",
+      "git_blob": "6d631f9cfa7283ef6063a8bb4bdbedda89727038"
+    },
+    {
+      "path": "newton/_src/sim/contacts.py",
+      "git_blob": "8686c334fbb5497b0ec4977134ed427243d94745"
+    },
+    {
+      "path": "newton/_src/sim/contact_kinematics.py",
+      "git_blob": "f2add6918615392bc2924be087baa7f897c022ae"
+    },
+    {
+      "path": "newton/_src/geometry/broad_phase_common.py",
+      "git_blob": "5d4b9d0ecc3097b096a8e47e63e37465aaa71c60"
+    },
+    {
+      "path": "newton/_src/geometry/contact_reduction_hydroelastic.py",
+      "git_blob": "e9ad3cdd43d669ce0d5e88a2973705fa5d68b580"
+    },
+    {
+      "path": "newton/_src/solvers/xpbd/restitution_kernels.py",
+      "git_blob": "defca3605635a0ce57325ee8c4a56129cbc7dfdb"
+    },
+    {
+      "path": "newton/_src/solvers/semi_implicit/kernels_contact.py",
+      "git_blob": "77644d11d914685cc14563528b027e79ada566b4"
+    },
+    {
+      "path": "newton/_src/sensors/sensor_contact.py",
+      "git_blob": "8c51f8a38f0c8b5e83d410008155eb714b75574f"
+    },
+    {
+      "path": "newton/_src/solvers/vbd/solver_vbd.py",
+      "git_blob": "c29f88dfebac7030c9e0c0165ddcdc5d46cd2e9a"
+    },
+    {
+      "path": "newton/_src/solvers/vbd/rigid_vbd_kernels.py",
+      "git_blob": "65399514bdbf5713aa59066881cac92cce3be6ee"
+    },
+    {
+      "path": "newton/_src/solvers/kamino/solver_kamino.py",
+      "git_blob": "7b3d49897a02bdb646fa13c6b8d103fd821549ba"
+    },
+    {
+      "path": "newton/_src/solvers/kamino/config.py",
+      "git_blob": "ad5959851004f26dfa4b323ac7ac6a253ba5c5f5"
+    },
+    {
+      "path": "newton/_src/solvers/kamino/_src/solver_kamino_impl.py",
+      "git_blob": "99354196f7978f92a7475f73da4ed9a13f61830c"
+    },
+    {
+      "path": "newton/_src/solvers/kamino/_src/solvers/padmm/solver.py",
+      "git_blob": "d1d7aa06a28644efe6a09b113f29c146bec19293"
+    },
+    {
+      "path": "newton/sensors.py",
+      "git_blob": "4dbe8d1356bf95ed3df3ec317d489f17889ab2cd"
+    },
+    {
+      "path": "newton/solvers.py",
+      "git_blob": "f0b0f4da2c86404d29140f910bcf34744673e719"
+    },
+    {
+      "path": "docs/solvers/mujoco.rst",
+      "git_blob": "3c50efb3dc6d125f2f156d93e75a0809ef2597d1"
+    },
+    {
+      "path": "docs/solvers/kamino.rst",
+      "git_blob": "7793fe16025d521d2a136a81355eeedb5ef9fe84"
+    },
+    {
+      "path": "pyproject.toml",
+      "git_blob": "75db8337e052fc41056c755781f17c336eb423a4"
+    },
+    {
+      "path": "uv.lock",
+      "git_blob": "3f4a9141f0444eb1ced0134464250c27ac539664"
+    },
+    {
+      "path": "newton/_src/solvers/kamino/_src/solvers/padmm/kernels.py",
+      "git_blob": "56d6a2f42ff5ad02f3e813a07a81b6648fc7f78b"
+    },
+    {
+      "path": "newton/_src/solvers/kamino/_src/integrators/euler.py",
+      "git_blob": "e986cea8c9c0d8081d9424f1ee7dc4f1fc854ac4"
+    },
+    {
+      "path": "newton/_src/solvers/kamino/_src/geometry/contacts.py",
+      "git_blob": "a5c26336a34e78c624091636fc740946e9c6ebef"
+    },
+    {
+      "path": "newton/__init__.py",
+      "git_blob": "4e6e8083ab997b1bd15934989ece070ce0dad911"
     }
   ]
 }

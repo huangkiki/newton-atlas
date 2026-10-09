@@ -6,15 +6,16 @@
 
 这是 **[Sim Atlas · 仿真图谱](https://github.com/huangkiki/sim-atlas)** 的独立社区学习仓库，重点覆盖 ModelBuilder/Model/State/Control/Contacts、Warp、solver 支持矩阵和多 world。
 
-提供两条完整路线：**A 应用路线**从对象与建模走向控制、机器人、传感器、学习接口与数据；**B 原理与源码路线**解释动力学、接触模型、求解器、积分、观测及扩展。现已提供首篇导读、固定版本源码地图，以及 [E1：模型、坐标、状态与时间](docs/modeling-state-time.md)、[E2：控制、机器人与任务接口](docs/control-robotics-tasks.md)。完整课程仍在开发；章节交付与运行验收分开记录。
+提供两条完整路线：**A 应用路线**从对象与建模走向控制、机器人、传感器、学习接口与数据；**B 原理与源码路线**解释动力学、接触模型、求解器、积分、观测及扩展。现已提供首篇导读、固定版本源码地图，以及 [E1：模型、坐标、状态与时间](docs/modeling-state-time.md)、[E2：控制、机器人与任务接口](docs/control-robotics-tasks.md)、[E3：接触、求解器与力观测](docs/contact-solvers-forces.md)。完整课程仍在开发；章节交付与运行验收分开记录。
 
 ## 从这里开始
 
 1. 阅读[导读](docs/guide.md)，建立对象与调用关系。
 2. 阅读 [E1 专题](docs/modeling-state-time.md)：从原生建模、资产与惯量，走到状态维度、双缓冲、采样和重置；配有 [API 例子](examples/e1_model_state.py)和[静态验收记录](docs/e1-validation.md)。
 3. 阅读 [E2 专题](docs/control-robotics-tasks.md)：贯通 Drive/Control/solver、关节映射、目标 IK、工具坐标与任务阶段，附[验收记录](docs/e2-validation.md)。
-4. 跟随[源码地图](docs/source-map.md)，在固定提交中核对原生字段、配置和执行路径。
-5. 按[课程路线](docs/curriculum.md)选择应用或原理专题；需要环境时看[安装说明](docs/installation.md)。
+4. 阅读 [E3 专题](docs/contact-solvers-forces.md)：从材料组合与碰撞生成，追到 XPBD/其他 solver 的迭代、积分与力读回；先看各后端的观测限制和[静态验收](docs/e3-validation.md)。
+5. 跟随[源码地图](docs/source-map.md)，在固定提交中核对原生字段、配置和执行路径。
+6. 按[课程路线](docs/curriculum.md)选择应用或原理专题；需要环境时看[安装说明](docs/installation.md)。
 
 当前先完成引擎知识体系与源码课程。最小 API 片段服务于理解，运行状态逐项注明；本轮没有新增仿真实验、训练、基准或独立评分器。后续实验复用 [DexLab](https://github.com/huangkiki/Dexlab) 的版本、配置和工况记录。
 
