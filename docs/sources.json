@@ -1,0 +1,59 @@
+{
+  "upstream": "newton-physics/newton",
+  "commit": "713fecdc41caf0c9d726f5c016939f36e66e3dff",
+  "scope": "source study; no simulation experiments or performance claims",
+  "files": [
+    {
+      "path": "docs/guide/overview.rst",
+      "git_blob": "064007d8f7e153444d34779f8713e6610e635018"
+    },
+    {
+      "path": "docs/guide/installation.rst",
+      "git_blob": "ecefa1d4be28b16231a6dc60384d3c136fe48343"
+    },
+    {
+      "path": "docs/concepts/conventions.rst",
+      "git_blob": "53edd2f3023ced37814694e267d81af721632b87"
+    },
+    {
+      "path": "docs/concepts/collisions.rst",
+      "git_blob": "a343d48e9dac71da523918a2aa9f61db9971f0a2"
+    },
+    {
+      "path": "docs/concepts/worlds.rst",
+      "git_blob": "ea892f2273907dfc3891fb8c19c197c0ee77f5a1"
+    },
+    {
+      "path": "docs/solvers/index.rst",
+      "git_blob": "34dfe2acac34a251700c925482aea5e8e6d62f04"
+    },
+    {
+      "path": "newton/_src/sim/model.py",
+      "git_blob": "de42a303e4bdbee84a5a25b94ed22ee266951cf1"
+    },
+    {
+      "path": "newton/_src/sim/state.py",
+      "git_blob": "77b4c5fd5b5577e658096e4cbd1785a5672923e6"
+    },
+    {
+      "path": "newton/_src/sim/builder.py",
+      "git_blob": "6f9c9695a36b496a114a6bd6b094f0681135953b"
+    },
+    {
+      "path": "newton/_src/sim/control.py",
+      "git_blob": "1dd76e6a221aa37ecaa9bc58b01c0487450322c5"
+    },
+    {
+      "path": "newton/_src/solvers/xpbd/solver_xpbd.py",
+      "git_blob": "0727bff9f986a0db1361efe56994902671602766"
+    },
+    {
+      "path": "newton/_src/solvers/mujoco/solver_mujoco.py",
+      "git_blob": "4e57d444fdebc1c722c61e64c01df0a5fc9fc74f"
+    },
+    {
+      "path": "newton/examples/basic/example_basic_pendulum.py",
+      "git_blob": "fbb1c1dcb2eed424863c1caf61dcd26862411c77"
+    }
+  ]
+}

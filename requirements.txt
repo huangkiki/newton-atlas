@@ -1,0 +1,3 @@
+# Candidate engine packages for later API lessons; not a validated environment lock.
+newton==1.6.1
+warp-lang==1.18.0
