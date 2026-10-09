@@ -90,6 +90,126 @@
     {
       "path": "newton/_src/solvers/xpbd/kernels.py",
       "git_blob": "81a94a07e5e1022a064c8ba3b69aa13b33e76a83"
+    },
+    {
+      "path": "docs/concepts/actuators.rst",
+      "git_blob": "4d7f1258f47bca0cf7a17874819469311240a343"
+    },
+    {
+      "path": "docs/concepts/articulations.rst",
+      "git_blob": "ced50ffc7f4f690020ce3e568d0e38f1854e4d7d"
+    },
+    {
+      "path": "docs/concepts/sites.rst",
+      "git_blob": "2ccfa56b425cae725944cf38317cfd072f10d5ef"
+    },
+    {
+      "path": "newton/_src/actuators/actuator.py",
+      "git_blob": "ebe4e54ebf4f66b4da84530ceb34b154affedfaf"
+    },
+    {
+      "path": "newton/_src/actuators/clamping/clamping_max_effort.py",
+      "git_blob": "b2b772fde20356100d7ce73b4d5f384fb39d480d"
+    },
+    {
+      "path": "newton/_src/actuators/delay.py",
+      "git_blob": "525eb2f27bf5c395465df204d21b3ca5eb9c75ec"
+    },
+    {
+      "path": "newton/_src/actuators/drives/drive_pd.py",
+      "git_blob": "49381429bdac06a46917a10c08ebcb1d09a05ead"
+    },
+    {
+      "path": "newton/_src/actuators/drives/drive_pid.py",
+      "git_blob": "2d7802df02803a23e8105e933e492554b7ae5df5"
+    },
+    {
+      "path": "newton/_src/actuators/effort_mode_explicit.py",
+      "git_blob": "3a9eee9f790a8912c53baf7140e936c647b749f6"
+    },
+    {
+      "path": "newton/_src/actuators/effort_mode_implicit.py",
+      "git_blob": "4a62555948fcde511faeac668e1ab80b589aa00a"
+    },
+    {
+      "path": "newton/_src/controllers/impl/_common.py",
+      "git_blob": "99316dccd0db2e659eb9d4272a28d674f3ec52a3"
+    },
+    {
+      "path": "newton/_src/controllers/impl/differential_ik/_common.py",
+      "git_blob": "a5b638d466fa992314650580fef20d21f142953f"
+    },
+    {
+      "path": "newton/_src/controllers/impl/differential_ik/model_based.py",
+      "git_blob": "8ade5ea0a16917ffb1e535125eb1c088f3412525"
+    },
+    {
+      "path": "newton/_src/controllers/impl/differential_ik/model_free.py",
+      "git_blob": "994f6379b0a5e18cdc7d901a686b574ce8901bf7"
+    },
+    {
+      "path": "newton/_src/controllers/impl/joint_impedance/model_based.py",
+      "git_blob": "197b36c9e0fb3ff4999cbd6700e3dd2fea024e12"
+    },
+    {
+      "path": "newton/_src/controllers/joint_selection.py",
+      "git_blob": "c4c07a65ff12dba565a08daf66f7456e493f8908"
+    },
+    {
+      "path": "newton/_src/controllers/tool_selection.py",
+      "git_blob": "a15587b7eb8c6bdbb42480c82adb8f248a5ede0b"
+    },
+    {
+      "path": "newton/_src/sim/ik/ik_lm_optimizer.py",
+      "git_blob": "926eb83733d23e53458be5016d009ec593559529"
+    },
+    {
+      "path": "newton/_src/sim/ik/ik_objectives.py",
+      "git_blob": "560a582e600b37f95b175c9d3a7e9bfb777a9e45"
+    },
+    {
+      "path": "newton/_src/sim/ik/ik_solver.py",
+      "git_blob": "f8d30ca46ab543fde19aa8cf45047ffb4f859581"
+    },
+    {
+      "path": "newton/_src/solvers/featherstone/kernels.py",
+      "git_blob": "b2a114d2e52589b9db3926a8742dc74257a19f49"
+    },
+    {
+      "path": "newton/_src/solvers/featherstone/solver_featherstone.py",
+      "git_blob": "640faef65679fd4a1f1465ffb0a6d764763aa8aa"
+    },
+    {
+      "path": "newton/_src/solvers/mujoco/kernels.py",
+      "git_blob": "cba18902126a036f619a06445299426cf7a8453d"
+    },
+    {
+      "path": "newton/_src/solvers/semi_implicit/kernels_body.py",
+      "git_blob": "4845240e954cb447cf63e082291eccdcc47f8dad"
+    },
+    {
+      "path": "newton/_src/solvers/semi_implicit/solver_semi_implicit.py",
+      "git_blob": "13e0ae497ffe924507e23e5f63edad24fb087b5f"
+    },
+    {
+      "path": "newton/actuators.py",
+      "git_blob": "c7936ede4c96121bf7ded76ef716b13738157344"
+    },
+    {
+      "path": "newton/controllers.py",
+      "git_blob": "239f3245f5c6e48aed0ca05403e89367486e3fc9"
+    },
+    {
+      "path": "newton/examples/controllers/example_controller_differential_ik.py",
+      "git_blob": "d0088e889c6076e703c134aa4792ce3a8bbc1b58"
+    },
+    {
+      "path": "newton/examples/ik/example_ik_franka.py",
+      "git_blob": "701173f56ea01ef4305caf6cc6e66ab553324a77"
+    },
+    {
+      "path": "newton/ik.py",
+      "git_blob": "7fe155c2259f0d47b20809eac8720f23a4e602d8"
     }
   ]
 }

@@ -1,0 +1,49 @@
+{
+  "stage": "E2",
+  "issue": "https://github.com/huangkiki/newton-atlas/issues/3",
+  "base_commit": "9423d6ef3d0572f8adf746c6dedd30175bd21543",
+  "source_commit": "713fecdc41caf0c9d726f5c016939f36e66e3dff",
+  "validation_scope": "source and syntax only; no engine or teaching-code execution",
+  "python_version": "3.12.12",
+  "checks": {
+    "whitespace": "passed",
+    "relative_markdown_links": "passed",
+    "python_ast": "passed",
+    "source_blob_identity": "passed",
+    "pinned_links_and_line_bounds": "passed",
+    "manual_claim_review": "completed; API exports, consumer paths, frame and unit distinctions reviewed"
+  },
+  "counts": {
+    "source_files": 52,
+    "source_files_added_e2": 30,
+    "source_links": 175,
+    "python_examples": 4,
+    "markdown_python_snippets": 1
+  },
+  "content_sha256": {
+    "docs/control-robotics-tasks.md": "7df3e59ec6b2b83292cc0d2769cb80b2e938ab0f020f36d82e414b12e6be62dd",
+    "examples/e2_scalar_drive.py": "0df51742623e64fa08cd6adc3e408a239bec05cf2963d7e2f950fda644944982",
+    "examples/e2_target_ik.py": "0a4293482331fe70743ee9ec4426da57340f97b078c9a6b4a15c924156bb1533",
+    "examples/e2_task_phases.py": "9ee9f1568aa979f2fe7f7639b80c66a95a68a49c581cefeaf83e14df6dc1398f",
+    "docs/sources.json": "66443a38cf3c7c8014e21dc409210f08974c84a92a390c18e6c6cc58a530678c"
+  },
+  "corrected_findings": [
+    "Out-of-bounds Actuator.step line anchor corrected to L539",
+    "Internal select_joints is not a public newton.controllers export",
+    "Scalar joint_f and FREE/DISTANCE wrench route through different MuJoCo buffers"
+  ],
+  "coverage": {
+    "A3": "source-grounded lesson delivered",
+    "A5": "source-grounded lesson delivered; solver and coordinate-space restrictions explicit",
+    "A7": "task interface and state transitions delivered; event observations and frozen experimental protocol deferred to DexLab"
+  },
+  "not_run": [
+    "Newton or Warp imports",
+    "native drive loop",
+    "target IK",
+    "task-phase helper execution",
+    "simulation or experiments",
+    "training",
+    "benchmarks"
+  ]
+}

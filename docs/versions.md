@@ -8,7 +8,7 @@
 | 源文件身份 | [sources.json](sources.json) 中的 Git blob 已与下载文件核对 |
 | 已完成检查范围 | 文档相对链接、固定来源与源码文件身份；API 片段只做语法检查 |
 | 原生运行与实验 | 本阶段未开展 |
-| 专题交付 | [E1](modeling-state-time.md) 的 A1/A2 已交付；B0/B4 基础部分已展开，其他专题见[课程目录](curriculum.md) |
+| 专题交付 | [E1](modeling-state-time.md) 的 A1/A2 已交付；B0/B4 基础部分已展开，[E2](control-robotics-tasks.md) 的 A3/A5/A7 已交付；其他专题见[课程目录](curriculum.md) |
 
 固定文件身份不能证明整个引擎已审查，也不能证明候选二进制与源码具有相同构建配置。核心、绑定、插件和宿主身份分别记录。当前版本的默认值不用于补填 DexLab 历史配置。
 
