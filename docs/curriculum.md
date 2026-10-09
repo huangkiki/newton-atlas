@@ -1,6 +1,6 @@
 # Newton Physics 两条学习路线
 
-[首篇导读](guide.md)已经建立对象关系和核心入口；[E1 专题](modeling-state-time.md)已展开建模与状态基础；[E2 专题](control-robotics-tasks.md)已展开控制、机器人和任务接口；[E3 专题](contact-solvers-forces.md)已展开接触、求解器与力观测；这些交付不代表下面全部专题已经完成。[源码地图](source-map.md)提供固定提交入口。
+[首篇导读](guide.md)已经建立对象关系和核心入口；[E1 专题](modeling-state-time.md)已展开建模与状态基础；[E2 专题](control-robotics-tasks.md)已展开控制、机器人和任务接口；[E3 专题](contact-solvers-forces.md)已展开接触、求解器与力观测；[E4 专题](sensors-rendering.md)已展开传感器、几何查询与渲染显示；这些交付不代表下面全部专题已经完成。[源码地图](source-map.md)提供固定提交入口。
 
 应用路线无需先学求解器源码；原理路线建议先理解 A0–A4，并具备线性代数和基础动力学知识。两条路线都完整规划，当前以讲解、源码与最小 API 片段为交付物。
 
@@ -12,7 +12,7 @@
 | A3 | 驱动与控制 | 状态设置与控制命令、驱动器、饱和、PD、回调与控制频率 | [E2 已交付](control-robotics-tasks.md)（源码/静态） |
 | A4 | 接触 API | 碰撞过滤、接触观测、摩擦/恢复/柔顺参数的原生语义 | [E3 核心已交付](contact-solvers-forces.md)（源码/静态） |
 | A5 | 机器人与运动学 | 模型导入、关节映射、FK/IK、限位、约束、外部控制集成 | [E2 已交付](control-robotics-tasks.md)（源码/静态） |
-| A6 | 传感器与渲染 | RGB/depth/分割/射线/力/触觉、坐标/单位/更新阶段、GUI/headless | 专题待开发 |
+| A6 | 传感器与渲染 | RGB/depth/分割/射线/力/触觉、坐标/单位/更新阶段、GUI/headless | [E4 已交付](sensors-rendering.md)（源码/静态；触觉与宿主能力边界明确） |
 | A7 | 任务编排 | 接近/闭合/保持/释放的控制接口与状态机设计，后续引用 DexLab 案例 | [E2 已交付](control-robotics-tasks.md)（源码/静态） |
 | A8 | 并行与学习接口 | CPU/GPU、批量隔离、reset/step、终止/截断、随机种子和官方学习接口 | 专题待开发 |
 | A9 | 数据与 sim-to-real | 状态/观测导出、时间戳、元数据、回放、随机化及模型差距 | 专题待开发 |

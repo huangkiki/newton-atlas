@@ -1,0 +1,48 @@
+{
+  "stage": "E4",
+  "issue": "https://github.com/huangkiki/newton-atlas/issues/5",
+  "base_commit": "4e380773873643a5760d15024e30bac973f6b297",
+  "source_commit": "713fecdc41caf0c9d726f5c016939f36e66e3dff",
+  "python_version": "3.12.12",
+  "validation_scope": "source review, document links, AST and source identities only; no engine imports, rendering or teaching-code execution",
+  "checks": {
+    "whitespace": "passed",
+    "relative_markdown_links": "passed",
+    "python_ast": "passed",
+    "newton_blob_identity": "passed",
+    "newton_fixed_links_and_line_bounds": "passed",
+    "manual_claim_review": "passed"
+  },
+  "counts": {
+    "newton_source_files": 99,
+    "newton_source_files_added_e4": 23,
+    "newton_source_links": 393,
+    "python_examples": 6,
+    "markdown_python_snippets": 2
+  },
+  "content_sha256": {
+    "docs/sensors-rendering.md": "c2a949d7ff1b5451c8d310565747fad262fd5d5a80be8ecb1c57988f8de19eb5",
+    "examples/e4_camera_frame.py": "20300828891b9a420c22a0f482051de1534c7e60a175b5eefb73281fb9e5306b",
+    "docs/sources.json": "c336af26928808d1f4e8dfd7a57587ee44ab8578f21305e958d10e8ed4c457d7"
+  },
+  "retained_limitations": [
+    "Camera ClearData defaults depth to zero despite no-hit wording in overview",
+    "Completely empty render contexts skip output writes; example explicitly pre-fills returned channels",
+    "Model BVH membership is shared and refit does not rebuild flags",
+    "IMU only checks storage allocation; producer/stage validity must be established separately",
+    "External renderer and graphics context compatibility has not been tested"
+  ],
+  "not_run": [
+    "native imports",
+    "teaching examples",
+    "JIT",
+    "physics steps",
+    "rendering",
+    "viewer windows",
+    "visual QA",
+    "experiments",
+    "training",
+    "benchmarks",
+    "scoring"
+  ]
+}

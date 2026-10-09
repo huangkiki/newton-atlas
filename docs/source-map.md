@@ -110,3 +110,32 @@ E2 特别区分：`eval_ik` 状态重建与 `newton.ik.IKSolver` 目标优化；
 - [积分器分支](https://github.com/google-deepmind/mujoco_warp/blob/087ac6f0ba9f33edb6bc284eb42aa6c3b16ef1f7/mujoco_warp/_src/forward.py#L353-L612)：Euler damping、RK4、多种速度隐式矩阵和状态推进；积分器与约束优化器分别选择。
 
 专题正文和 [E3 验收](e3-validation.md)保留源码发现与未决项；源码身份核对不等于整文件或全部后端通过物理测试。
+
+## E4：观测 producer、相机几何与显示后端
+
+[专题正文](sensors-rendering.md)将申请存储、producer、更新时间和 consumer 分开；没有 native import、渲染或物理执行。以下为固定实现的阅读入口，具体行号见正文。
+
+| 入口 | 本章实际核对 |
+|---|---|
+| [公开 sensor 导出](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/sensors.py) | 四类 sensor；不依概念页的计数字样推断额外能力 |
+| [FrameTransform](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/sensors/sensor_frame_transform.py) | shape/site 配对、广播、world 相对变换、只读 body_q |
+| [IMU](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/sensors/sensor_imu.py) | body_qdd 申请与消费者、COM/site 加速度、重力、输出轴 |
+| [MuJoCo producer](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/solvers/mujoco/solver_mujoco.py) | RNE 申请/禁用检查、step/FK/扩展字段转换阶段 |
+| [Contact](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/sensors/sensor_contact.py) | flat sensing rows、per-world counterpart 列、可选 State 与缓存清理 |
+| [shape BVH](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/sim/model.py) | VISIBLE 默认 mask、build/refit、model 共享缓存 |
+| [射线查询](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/geometry/raycast.py) | newton.intersect_ray 的 world/global roots、距离/normal/miss |
+| [TiledCamera](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/sensors/sensor_tiled_camera.py) | 七类通道、输入输出维度、sync_transforms 范围 |
+| [相机射线](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/sensors/warp_raytrace/camera_utils.py) | pinhole/标定反解、坐标轴、像素中心、无效零射线 |
+| [图像工具](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/sensors/warp_raytrace/utils.py) | 输出分配、原始图像与显示 RGBA 变换 |
+| [render/context](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/sensors/warp_raytrace/render_context.py) | 是否存在几何、shape 校验、复用输出与实际 launch |
+| [render writer](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/sensors/warp_raytrace/render.py) | ray/forward depth、world normal、hit/miss 与禁用反传 |
+| [默认值/特殊 ID](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/sensors/warp_raytrace/types.py) | ClearData、RenderConfig；另沿 raytrace.py 识别集合 ID |
+| [ViewerBase](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/viewer/viewer.py) | begin/log/end 与显示布局；log_image 基类 no-op |
+| [GL viewer](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/viewer/viewer_gl.py) | log_image override、最后 framebuffer RGB、host/GPU 读回 |
+| [GL context](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/viewer/gl/opengl.py) | headless 仍建立隐藏图形上下文 |
+| [RTX adapter](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/viewer/viewer_rtx.py) | OVRTX/OVStage 依赖和异步呈现上一帧 |
+| [File recording](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/viewer/viewer_file.py) | 克隆直接 State 数组；不同于完整 solver checkpoint |
+| [USD samples](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/newton/_src/viewer/viewer_usd.py) | int(time*fps) 量化与 close 保存 |
+| [宿主与显示指南](https://github.com/newton-physics/newton/blob/713fecdc41caf0c9d726f5c016939f36e66e3dff/docs/guide/visualization.rst) | Rerun/Viser/RTX/文件模式和上游验证边界 |
+
+来源身份、静态检查、保留问题与下一阶段见 [E4 验收](e4-validation.md)。没有把图像尺寸、数组分配或窗口存在当作有效观测证明。

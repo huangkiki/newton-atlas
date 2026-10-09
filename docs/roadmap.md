@@ -8,7 +8,7 @@
 | E1 | 建模、坐标、状态与时间专题 | E0 | [专题已实现](modeling-state-time.md)，[源码/静态验收](e1-validation.md) |
 | E2 | 驱动、机器人与任务接口专题 | E1 | [专题已实现](control-robotics-tasks.md)，[源码/静态验收](e2-validation.md) |
 | E3 | 接触、求解器与力观测源码专题 | E1 | [专题已实现](contact-solvers-forces.md)，[源码/静态验收](e3-validation.md) |
-| E4 | 传感器、渲染与可视化专题 | E1 | 待开发 |
+| E4 | 传感器、渲染与可视化专题 | E1 | [专题已实现](sensors-rendering.md)，[源码/静态验收](e4-validation.md) |
 | E5 | 批量、学习接口与数据专题 | E2、E4 | 待开发 |
 | E6 | 引擎特色、扩展与能力边界专题 | E3 | 待开发 |
 | E7 | 双路线课程审校与 DexLab 复用入口 | E2–E6 | 待开发 |
@@ -30,3 +30,7 @@ E2 已展开 A3/A5/A7，控制输入、模型约束与任务观测仍保持分�
 ## E3 后的任务复审
 
 E3 已展开 A4/B1–B5 与 B0 的核心动力学装配链；XPBD 的权重/恢复读回限制、固定 MuJoCo-Warp 的 torque 参考点缺口均保留在课程和验收中。静态身份与语法通过不构成物理运行验收。后续优先 E4，以满足 E5 的剩余依赖；E6 已具备 E3 前置，承接专用材料、DVI 深层求解、耦合/扩展与可微实现细节。E7 仍等待 E4–E6；不把 SensorContact 的线性力消费说明当作 A6 全面交付。发布状态以 [Issue #4](https://github.com/huangkiki/newton-atlas/issues/4) 与实际合入提交为准。
+
+## E4 后的任务复审
+
+E4 已展开 A6 的四种公开 sensor、射线查询、七类相机通道和 viewer/宿主边界，保留 qdd producer/采样阶段、默认 miss 值、空场景不写输出及 BVH 共享等限制。没有 native import、渲染、物理执行或视觉 QA。E5 已具备 E2/E4 前置，下一项可推进批量与学习/数据接口；E6 仍承接特色扩展，E7 等待 E5/E6。E1–E3 验收是历史交付快照，当前来源清单与检查以 E4 为准。发布状态以 [Issue #5](https://github.com/huangkiki/newton-atlas/issues/5) 及实际合入提交为准。

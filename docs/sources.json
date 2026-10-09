@@ -306,6 +306,98 @@
     {
       "path": "newton/__init__.py",
       "git_blob": "4e6e8083ab997b1bd15934989ece070ce0dad911"
+    },
+    {
+      "path": "docs/concepts/sensors.rst",
+      "git_blob": "409e9121cf64bf7687120b7fc29ce8db1e4c661a"
+    },
+    {
+      "path": "docs/guide/visualization.rst",
+      "git_blob": "31d4c2578664006c65ac8b085f9705fed9de22cf"
+    },
+    {
+      "path": "newton/_src/geometry/bvh.py",
+      "git_blob": "07b903045f7bcd05e39b559c365d671a9977365a"
+    },
+    {
+      "path": "newton/_src/geometry/flags.py",
+      "git_blob": "21cf453411eccdcde446fb095b0dad7640d844c5"
+    },
+    {
+      "path": "newton/_src/geometry/raycast.py",
+      "git_blob": "09b7393e4aadd5c0521b2105d807b0b418ef5c61"
+    },
+    {
+      "path": "newton/_src/sensors/sensor_frame_transform.py",
+      "git_blob": "b11c81e1e387a4d71590f0e5ce9d048068c4d9c2"
+    },
+    {
+      "path": "newton/_src/sensors/sensor_imu.py",
+      "git_blob": "5ad3eee714264d53f762926b68bdec7a7ff5b3b5"
+    },
+    {
+      "path": "newton/_src/sensors/sensor_tiled_camera.py",
+      "git_blob": "bc1d79ef0ccd9ac516d12f349de72a4fe2b53233"
+    },
+    {
+      "path": "newton/_src/sensors/warp_raytrace/camera_utils.py",
+      "git_blob": "c44b7a7607bc3760d5c5a469c105b98cb66928a3"
+    },
+    {
+      "path": "newton/_src/sensors/warp_raytrace/raytrace.py",
+      "git_blob": "4db75bc41f79541702467c7f26d8faabfe76b1f0"
+    },
+    {
+      "path": "newton/_src/sensors/warp_raytrace/render.py",
+      "git_blob": "1ff0cecacfc5f58b8b5c6c5e08e45af107416536"
+    },
+    {
+      "path": "newton/_src/sensors/warp_raytrace/render_context.py",
+      "git_blob": "02d78014278a4d2ad5ba46a6e7c04253cc3db3df"
+    },
+    {
+      "path": "newton/_src/sensors/warp_raytrace/types.py",
+      "git_blob": "30153745ac9e1d8ebe9281f338dd20b8915d1e40"
+    },
+    {
+      "path": "newton/_src/sensors/warp_raytrace/utils.py",
+      "git_blob": "4dacee88ecf1dec89371a144f3c073a9b7e1bcb7"
+    },
+    {
+      "path": "newton/_src/utils/selection.py",
+      "git_blob": "e95e7ad08def3b8b53fa6d9def761f6a70241bed"
+    },
+    {
+      "path": "newton/_src/viewer/gl/opengl.py",
+      "git_blob": "c0306b97fae842aa60e45afa78cba6d00a9a5e4f"
+    },
+    {
+      "path": "newton/_src/viewer/viewer.py",
+      "git_blob": "d3a9023469fa28068524d8b3009b816060519ef9"
+    },
+    {
+      "path": "newton/_src/viewer/viewer_file.py",
+      "git_blob": "8e53edf0f8f863198eba14a704c6ca5a80663d47"
+    },
+    {
+      "path": "newton/_src/viewer/viewer_gl.py",
+      "git_blob": "c88b92766d9a734cac4823caba630527b68b4ed4"
+    },
+    {
+      "path": "newton/_src/viewer/viewer_null.py",
+      "git_blob": "7f47e13bd9806d3387a3107a45a5d607957df67a"
+    },
+    {
+      "path": "newton/_src/viewer/viewer_rtx.py",
+      "git_blob": "c72a75679c6c9c2172d084ac166a4bb4fc5e7f8e"
+    },
+    {
+      "path": "newton/_src/viewer/viewer_usd.py",
+      "git_blob": "bcb35f19d00155b5e820eba95031d280b05699d6"
+    },
+    {
+      "path": "newton/viewer.py",
+      "git_blob": "2cbb5e278a1b2b4b274c5429494efdd86e193ab7"
     }
   ]
 }
